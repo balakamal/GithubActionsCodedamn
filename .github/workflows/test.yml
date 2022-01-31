@@ -8,6 +8,6 @@ jobs: #all the actions/jobs it need to do
       - run: echo "Running Step-2"
   build-app:
     runs-on: ubuntu-latest
-    uses: actions/checkout@v2
     steps:
+      - uses: actions/checkout@v2
       - run: tree
