@@ -1,13 +1,21 @@
 name: My First GitHub Action
 on: [push] #specifies when to run this action like push a commit, pull_request, deployment_request etc
 jobs: #all the actions/jobs it need to do
-  print-hello-world:
-    runs-on: ubuntu-latest #underlying os on which this action needs to run
-    steps:
-      - run: echo 'Hello world!!!' #-represent array of values, run is the command used to run
-      - run: echo "Running Step-2"
   build-app:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #underlying os on which this action needs to run
+
     steps:
-      - uses: actions/checkout@v2
-      - run: tree
+      - uses: actions/checkout@v2 # to get out repo cloned while running the action
+
+      - uses: actions/setup-node@v2 #To install node
+        with:
+          node-version: "16"
+
+      - name: Installing modules
+        run: yarn
+
+      - name: Build the project #display the step with this name
+        run: yarn build
+
+      - name: Setup finished
+        run: echo 'Hurray!' #-represent array of values, run is the command used to ru
