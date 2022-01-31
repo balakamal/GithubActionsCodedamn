@@ -1,0 +1,8 @@
+name: My First GitHub Action
+on: [push] #specifies when to run this action like push a commit, pull_request, deployment_request etc
+jobs: #all the actions/jobs it need to do
+  print-hello-world:
+    runs-on: ubuntu-latest #underlying os on which this action needs to run
+    steps:
+      - run: echo 'Hello world!!!' #-represent array of values, run is the command used to run
+      - run: echo "Running Step-2"
