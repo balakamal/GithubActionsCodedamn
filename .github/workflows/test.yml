@@ -6,3 +6,7 @@ jobs: #all the actions/jobs it need to do
     steps:
       - run: echo 'Hello world!!!' #-represent array of values, run is the command used to run
       - run: echo "Running Step-2"
+  build-app:
+    runs-on: ubuntu-latest
+    steps:
+      - run: tree
